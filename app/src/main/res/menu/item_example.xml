@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+     >
+
+<item android:title="option 1"
+    android:id="@+id/item1"
+    android:color="#CC1616"
+    app:showAsAction="never"/>
+   <item android:title="option 2"
+       android:id="@+id/item2"
+    app:showAsAction="never"/>
+<item android:title="option 3"
+    app:showAsAction="never"/>
+    <item android:title="option 4"
+    app:showAsAction="never"/>
+
+
+
+</menu>
