@@ -15,12 +15,13 @@ Button next;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+     //   actionBar.hide();
         next=findViewById(R.id.button);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getApplicationContext(),CategoryActivity.class);
+                MainActivity.this.finish();
                 startActivity(intent);
             }
         });

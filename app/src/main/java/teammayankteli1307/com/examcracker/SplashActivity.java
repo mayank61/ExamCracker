@@ -18,7 +18,7 @@ TextView appname;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+      //  actionBar.hide();
         appname = findViewById(R.id.appname);
         Animation anim = AnimationUtils.loadAnimation(this,R.anim.animation);
         appname.setAnimation(anim);
@@ -31,6 +31,7 @@ TextView appname;
                     e.printStackTrace();
                 }
                 Intent intent  = new Intent(getApplicationContext(),MainActivity.class);
+                SplashActivity.this.finish();
                 startActivity(intent);
 
             }

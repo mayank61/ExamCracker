@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -24,7 +25,7 @@ TextView textsettype;
         setContentView(R.layout.activity_set);
         Intent intent = getIntent();
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();;
+     //   actionBar.hide();;
         setsGrid=findViewById(R.id.gridsets);
 
      String s =   intent.getStringExtra("cat");
@@ -44,6 +45,14 @@ TextView textsettype;
             @Override
             public void onClick(View view) {
                 Intent intent1=new Intent(getApplicationContext(),CategoryActivity.class);
+                startActivity(intent1);
+            }
+        });
+        setsGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent1 = new Intent(getApplicationContext(),QuestionActivity.class);
+                intent1.putExtra("set",i);
                 startActivity(intent1);
             }
         });

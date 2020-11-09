@@ -34,7 +34,7 @@ private  Example[] examples = new Example[20];
 toolbar=findViewById(R.id.toolbar);
 toolbar.inflateMenu(R.menu.item_example);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+       // actionBar.hide();
 toolbar.setNavigationOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {

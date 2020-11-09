@@ -11,8 +11,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_margin="22dp"
+        android:layout_height="250dp"
+        android:layout_margin="10dp"
         android:background="#EF9393"
         android:orientation="vertical">
 
@@ -22,50 +22,61 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="25dp"
             android:text="1/10"
+            android:id="@+id/numverQuestion"
             android:textColor="#121111"
-            android:textSize="18sp"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/questiontext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="36dp"
             android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:text="What is capital of India ?"
             android:textColor="#000000" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="55dp"
+
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/round_icon"
+            android:gravity="center_horizontal"
+            android:text="30"
+            android:textColor="#000000"
+            android:id="@+id/countertext"
+            android:textSize="22dp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="36dp"
-        android:layout_gravity="end"
-        android:layout_marginEnd="36dp"
-        android:background="@drawable/round_icon"
-        android:gravity="center_horizontal"
-        android:text="30"
-        android:textColor="#000000"
-        android:textSize="22dp"
-        android:textStyle="bold" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="350dp"
         android:layout_margin="22dp"
         android:background="#7DBFF3"
+
         android:orientation="vertical"
 
         >
 
+
         <Button
             android:id="@+id/option1"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_margin="16dp"
-            android:backgroundTint="@color/material_on_surface_disabled"
+            android:backgroundTint="#FFFFFF"
             android:text="Opion 1"
+android:elevation="22dp"
             android:textColor="#0E0E0E"
 
             android:textStyle="bold" />
@@ -73,33 +84,37 @@
         <Button
             android:id="@+id/option2"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_margin="16dp"
-            android:backgroundTint="@color/material_on_surface_disabled"
-            android:text="Opion 1"
+            android:backgroundTint="#FFFFFF"
+            android:text="Opion 2"
             android:textColor="#0E0E0E"
-
+            android:elevation="22dp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/option3"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_margin="16dp"
-            android:backgroundTint="@color/material_on_surface_disabled"
+            android:backgroundTint="#FFFFFF"
             android:text="Opion 1"
             android:textColor="#0E0E0E"
-
+            android:elevation="22dp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/option4"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_margin="16dp"
-            android:backgroundTint="@color/material_on_surface_disabled"
+            android:backgroundTint="#FFFFFF"
             android:text="Opion 1"
             android:textColor="#0E0E0E"
+            android:elevation="22dp"
 
             android:textStyle="bold" />
     </LinearLayout>
