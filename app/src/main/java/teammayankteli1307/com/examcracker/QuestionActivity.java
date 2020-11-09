@@ -27,6 +27,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     Button option1, option2, option3, option4;
     private int questionNumber = 0;
     CountDownTimer countDownTimer;
+    int score=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,7 +137,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     @SuppressLint("SetTextI18n")
     private void changeQuestion() {
         questionNumber++;
-        if (questionNumber < questionList.size() - 1) {
+        if (questionNumber < questionList.size() ) {
             playanim(questiontext, 0, 0);
             playanim(option1, 0, 1);
             playanim(option2, 0, 2);
@@ -146,7 +147,10 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             startTimer();
         } else {
             Intent intent = new Intent(QuestionActivity.this, ScoreActivity.class);
-            QuestionActivity.this.finish();
+
+            intent.putExtra("SCORE",score+"/"+questionList.size());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+           // QuestionActivity.this.finish();
             startActivity(intent);
         }
     }
@@ -205,6 +209,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
     private void correctAnser(int answer, View view) {
         if (answer == questionList.get(questionNumber).getAnswer()) {
+            score++;
             ((Button) view).setBackgroundTintList(ColorStateList.valueOf(Color.GREEN));
 
         } else {
@@ -236,5 +241,11 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             }
         },1500);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        countDownTimer.cancel();
     }
 }
