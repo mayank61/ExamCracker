@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "897151061952",
+    "firebase_url": "https://examcracker-33a23.firebaseio.com",
+    "project_id": "examcracker-33a23",
+    "storage_bucket": "examcracker-33a23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897151061952:android:5efaebe445767554298225",
+        "android_client_info": {
+          "package_name": "teammayankteli1307.com.examcracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897151061952-3jutr7tk9qj4qla5cdd2fgv9vvudg35n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "teammayankteli1307.com.examcracker",
+            "certificate_hash": "aa43af89a2e5213111dd196301d745df03f54e49"
+          }
+        },
+        {
+          "client_id": "897151061952-2rqd1vcb9n52ili9kveapf1flr6edea9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbAnX38M3tlNv3Jg9AGTyzGIeehmpDqCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897151061952-2rqd1vcb9n52ili9kveapf1flr6edea9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
