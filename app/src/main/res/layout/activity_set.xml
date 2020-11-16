@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".SetActivity">
 
+
     <Toolbar
         android:id="@+id/toolbar1"
         android:layout_width="match_parent"
@@ -28,6 +29,16 @@
         android:textStyle="bold"
         android:textSize="22sp"
         android:textColor="#121111" />
+    <ProgressBar
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:outlineAmbientShadowColor="@color/purple_200"
+        android:visibility="visible"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+
+        android:id="@+id/progreesbar"
+        android:background="@drawable/border_gridview"/>
     <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

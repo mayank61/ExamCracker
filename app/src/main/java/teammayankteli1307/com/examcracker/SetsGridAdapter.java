@@ -14,7 +14,7 @@ import java.util.List;
 public class SetsGridAdapter  extends BaseAdapter {
 private     Context context;
    private LayoutInflater inflater;
-   ArrayList<String> list=new ArrayList<>(8);
+   ArrayList<Integer> list=new ArrayList<>();
 
 
 
@@ -46,7 +46,7 @@ private     Context context;
         TextView textView ;
         view =inflater.inflate(R.layout.setsgrid,null);
         textView=view.findViewById(R.id.setNumber);
-        textView.setText( list.get(i));
+        textView.setText( String.valueOf(list.get(i)));
 
         return  view;
 

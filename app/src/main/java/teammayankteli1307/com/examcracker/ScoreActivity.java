@@ -24,7 +24,7 @@ Button button;
             @Override
             public void onClick(View view) {
                 Intent intent1=new Intent(getApplicationContext(),CategoryActivity.class);
-             //   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+             //   intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 ScoreActivity.this.finish();
                 startActivity(intent1);
 

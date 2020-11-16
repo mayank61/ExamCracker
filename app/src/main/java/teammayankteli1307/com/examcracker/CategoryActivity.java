@@ -14,12 +14,15 @@ import android.widget.GridView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CategoryActivity extends AppCompatActivity {
     GridView categoryView;
     Toolbar toolbar;
   private   int[] images = {R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test,R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test};
   private   String[] names = {"English", "Maths", "History", "Jee", "Neet", "IAS", "RAS", "UPpsc", "SSC", "geographhy","English", "Maths", "History", "Jee", "Neet", "IAS", "RAS", "UPpsc", "SSC", "geographhy"};
-private  Example[] examples = new Example[20];
+private List<Example> examples = new ArrayList<>(20);
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,10 +57,10 @@ toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
 });
 
         categoryView = findViewById(R.id.gridCategory);
-        for(int i=0;i<20;i++)
+        for(int i=0;i<5;i++)
         {
 
-          examples[i]=new Example(names[i],images[i]);
+          examples.add(new Example(SplashActivity.Catlist.get(i),images[i]));
 
         }
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(),examples);
@@ -66,7 +69,8 @@ toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 Intent intent = new Intent(getApplicationContext(),SetActivity.class);
-intent.putExtra("cat",names[i]);
+intent.putExtra("cat",SplashActivity.Catlist.get(i));
+intent.putExtra("id",i+1);
 startActivity(intent);
 
             }
