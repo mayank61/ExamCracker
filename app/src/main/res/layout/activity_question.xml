@@ -26,6 +26,16 @@
             android:textColor="#121111"
             android:textSize="28sp"
             android:textStyle="bold" />
+        <ProgressBar
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:outlineAmbientShadowColor="@color/purple_200"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+
+            android:id="@+id/progreesbar2"
+            android:background="@drawable/border_gridview"/>
 
         <TextView
             android:id="@+id/questiontext"

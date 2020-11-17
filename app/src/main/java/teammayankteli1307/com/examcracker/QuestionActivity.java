@@ -1,5 +1,6 @@
 package teammayankteli1307.com.examcracker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
@@ -13,21 +14,31 @@ import android.os.Handler;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionActivity extends AppCompatActivity implements View.OnClickListener {
 
-    List<Question> questionList;
+    List<Question> questionList =   new ArrayList<>();;
 
     TextView questiontext, counterText, numberqText;
     Button option1, option2, option3, option4;
     private int questionNumber = 0;
     CountDownTimer countDownTimer;
     int score=0;
+    private FirebaseFirestore  firebaseFirestore ;
+    int setId = 0;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,25 +55,40 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         option2.setOnClickListener(this);
         option3.setOnClickListener(this);
         option4.setOnClickListener(this);
+        firebaseFirestore =FirebaseFirestore.getInstance();
+        Intent intent= getIntent();
+
+     setId=   intent.getIntExtra("set", 0);
+progressBar  = findViewById(R.id.progreesbar2);
+progressBar.setVisibility(View.VISIBLE);
+
         getQuestion();
 
     }
 
     private void getQuestion() {
-        questionList = new ArrayList<>();
-        questionList.add(new Question("Question 1", "Opion A", "Option b", "opyion c ", "option d", 2));
-        questionList.add(new Question("Question 2dfgdfgd", "Opion A", "Option b", "opyion c ", "option d", 1));
-        questionList.add(new Question("Question Mayank Teli 3", "Opion A", "Option b", "opyion c ", "option d", 4));
-        questionList.add(new Question("Question Nitt trichy 4", "Opion A", "Option b", "opyion c ", "option d", 2));
-        questionList.add(new Question("Question ASD1", "Opion A", "Option b", "opyion c ", "option d", 1));
-        questionList.add(new Question("Question 2", "Opion A", "Option b", "opyion c ", "option d", 2));
-        questionList.add(new Question("Question 3", "Opion A", "Option b", "opyion c ", "option d", 2));
-        questionList.add(new Question("Question 4", "Opion A", "Option b", "opyion c ", "option d", 3));
-        questionList.add(new Question("Question 1", "Opion A", "Option b", "opyion c ", "option d", 2));
-        questionList.add(new Question("Question 2", "Opion A", "Option b", "opyion c ", "option d", 3));
-        questionList.add(new Question("Question 3", "Opion A", "Option b", "opyion c ", "option d", 2));
-        questionList.add(new Question("Question 4", "Opion A", "Option b", "opyion c ", "option d", 3));
-        setQuestion(questionNumber);
+
+       firebaseFirestore.collection("Quiz").document("Cat"+SetActivity.id).collection("Set"+setId).get()
+               .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                   @Override
+                   public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                       if(task.isSuccessful())
+                       {
+
+                           QuerySnapshot question  =  task.getResult();
+                           for(QueryDocumentSnapshot q : question)
+                           {
+                               questionList.add(new Question(q.getString("Question"),q.getString("Option1"),q.getString("Option2"),q.getString("Option3"),q.getString("Option4"),Integer.parseInt(q.getString("Answer"))));
+                           }
+                           progressBar.setVisibility(View.GONE);
+                           setQuestion(questionNumber);
+                       }
+                       else {
+                           Toast.makeText(getApplicationContext(),"Not Successful",Toast.LENGTH_SHORT).show();
+                       }
+                   }
+               });
+
 
     }
 

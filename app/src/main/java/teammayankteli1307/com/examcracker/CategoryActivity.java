@@ -22,7 +22,7 @@ public class CategoryActivity extends AppCompatActivity {
     Toolbar toolbar;
   private   int[] images = {R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test,R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test, R.drawable.icon, R.drawable.test};
   private   String[] names = {"English", "Maths", "History", "Jee", "Neet", "IAS", "RAS", "UPpsc", "SSC", "geographhy","English", "Maths", "History", "Jee", "Neet", "IAS", "RAS", "UPpsc", "SSC", "geographhy"};
-private List<Example> examples = new ArrayList<>(20);
+private List<Example> examples ;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -36,6 +36,7 @@ private List<Example> examples = new ArrayList<>(20);
         setContentView(R.layout.activity_category);
 toolbar=findViewById(R.id.toolbar);
 toolbar.inflateMenu(R.menu.item_example);
+      examples =   new ArrayList<>();
         ActionBar actionBar = getSupportActionBar();
        // actionBar.hide();
 toolbar.setNavigationOnClickListener(new View.OnClickListener() {

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class SetActivity extends AppCompatActivity {
     Toolbar toolbar1;
     GridView setsGrid;
-    int id;
+public  static     int id;
     ArrayList<Integer> list = new ArrayList();
     TextView textsettype;
    private FirebaseFirestore firebaseFirestore;
@@ -61,7 +61,7 @@ firebaseFirestore = FirebaseFirestore.getInstance();
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent1 = new Intent(getApplicationContext(), QuestionActivity.class);
-                intent1.putExtra("set", i);
+                intent1.putExtra("set", i+1);
                 startActivity(intent1);
             }
         });
